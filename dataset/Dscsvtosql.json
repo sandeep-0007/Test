@@ -1,0 +1,93 @@
+{
+	"name": "Dscsvtosql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_AzureBlob_Storage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "student-scores.csv",
+				"container": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "first_name",
+				"type": "String"
+			},
+			{
+				"name": "last_name",
+				"type": "String"
+			},
+			{
+				"name": "email",
+				"type": "String"
+			},
+			{
+				"name": "gender",
+				"type": "String"
+			},
+			{
+				"name": "part_time_job",
+				"type": "String"
+			},
+			{
+				"name": "absence_days",
+				"type": "String"
+			},
+			{
+				"name": "extracurricular_activities",
+				"type": "String"
+			},
+			{
+				"name": "weekly_self_study_hours",
+				"type": "String"
+			},
+			{
+				"name": "career_aspiration",
+				"type": "String"
+			},
+			{
+				"name": "math_score",
+				"type": "String"
+			},
+			{
+				"name": "history_score",
+				"type": "String"
+			},
+			{
+				"name": "physics_score",
+				"type": "String"
+			},
+			{
+				"name": "chemistry_score",
+				"type": "String"
+			},
+			{
+				"name": "biology_score",
+				"type": "String"
+			},
+			{
+				"name": "english_score",
+				"type": "String"
+			},
+			{
+				"name": "geography_score",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

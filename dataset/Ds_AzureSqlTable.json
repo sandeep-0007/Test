@@ -1,0 +1,96 @@
+{
+	"name": "Ds_AzureSqlTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_AzureSqlDatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "first_name",
+				"type": "varchar"
+			},
+			{
+				"name": "last_name",
+				"type": "varchar"
+			},
+			{
+				"name": "email",
+				"type": "varchar"
+			},
+			{
+				"name": "gender",
+				"type": "varchar"
+			},
+			{
+				"name": "part_time_job",
+				"type": "char"
+			},
+			{
+				"name": "absence_days",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "extracurricular_activities",
+				"type": "char"
+			},
+			{
+				"name": "weekly_self_study_hours",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "career_aspiration",
+				"type": "varchar"
+			},
+			{
+				"name": "math_score",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "history_score",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "physics_score",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "chemistry_score",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "biology_score",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "english_score",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "geography_score",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Product_NEW"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

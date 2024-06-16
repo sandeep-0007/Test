@@ -1,0 +1,269 @@
+{
+	"name": "Data_LoadPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Data Copy CSV",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 3,
+					"retryIntervalInSeconds": 120,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "id",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "first_name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "first_name",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "last_name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "last_name",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "email",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "email",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gender",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gender",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "part_time_job",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "part_time_job",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "absence_days",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "absence_days",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "extracurricular_activities",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "extracurricular_activities",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "weekly_self_study_hours",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "weekly_self_study_hours",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "career_aspiration",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "career_aspiration",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "math_score",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "math_score",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "history_score",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "history_score",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "physics_score",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "physics_score",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "chemistry_score",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "chemistry_score",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "biology_score",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "biology_score",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "english_score",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "english_score",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "geography_score",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "geography_score",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Dscsvtosql",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Ds_AzureSqlTable",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-03-24T11:15:10Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
